@@ -1,21 +1,21 @@
 <script>
+// import Vue from 'vue';
+// import JsonCSV from 'vue-json-csv';
 
+// Vue.component('downloadCsv', JsonCSV);
 
 export default {
   data: function () {
     return {
       message: "Welcome to add boat data",
-      boats: {},
       newBoatParams: {}
-
     };
   },
   created: function () { },
   methods: {
     newData: function () {
       console.log('adding data');
-      this.boat.push(this.newBoatParams);
-      console.log(this.boat)
+      console.log(this.newBoatParams);
       this.newBoatParams = {}
     }
   },
@@ -28,7 +28,13 @@ export default {
     <p>Name: <input v-model="newBoatParams.name"></p>
     <p>Model: <input v-model="newBoatParams.model"></p>
     <p>Description: <input v-model="newBoatParams.description"></p>
-    <p><button v-on:click="newData()">Add Data</button></p>
+    <p><button v-on:click="newData()"><download-csv :data   = "json_data">
+      Download Data
+  </download-csv>   </button></p>
+
+
+ 
+
   </div>
 </template>
 
